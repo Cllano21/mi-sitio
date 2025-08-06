@@ -16,8 +16,17 @@ export default function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Evitar scroll del body cuando el menú está abierto
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
+
   const scrollToSection = (id: string) => {
-    setIsMenuOpen(false); // Close mobile menu when a section link is clicked
+    setIsMenuOpen(false); // Cerrar menú móvil al hacer click
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -27,12 +36,12 @@ export default function HomePage() {
       <header
         ref={headerRef}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'shadow-lg bg-[rgba(30,58,138,0.8)] backdrop-blur-md' 
+          scrolled
+            ? 'shadow-lg bg-[rgba(30,58,138,0.8)] backdrop-blur-md'
             : 'bg-transparent'
         }`}
       >
-        <div 
+        <div
           className="flex justify-between items-center p-3 max-w-5xl mx-auto"
           style={{
             background: 'rgba(255, 255, 255, 0.2)',
@@ -49,12 +58,12 @@ export default function HomePage() {
             />
           </div>
 
-          <nav className="hidden md:flex flex-wrap justify-center"> 
+          <nav className="hidden md:flex flex-wrap justify-center">
             {['Inicio', 'perfil', 'formacion', 'Experiencia', 'Contacto'].map(
               (item) => (
                 <button
                   key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())} // Use lowercase for IDs
+                  onClick={() => scrollToSection(item.toLowerCase())} // IDs en minúsculas
                   className="px-3 py-2 mx-1 rounded hover:bg-white/20 flex items-center text-white text-md transition"
                 >
                   <i
@@ -83,27 +92,42 @@ export default function HomePage() {
               )
             )}
           </nav>
-           <button 
+          {/* Mantenemos el botón aquí para el estado inicial de FaBars */}
+          <button
             className="md:hidden text-white text-xl z-[500]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div 
-          className={`fixed top-0 left-0 w-full h-full bg-[rgba(30,58,138,0.95)] backdrop-blur-lg z-[999] transition-all duration-300 ${
-            isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+        <div
+          className={`fixed top-0 left-0 w-full h-full bg-blue-900 z-[999] transition-all duration-300 ${
+            isMenuOpen
+              ? 'opacity-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 -translate-y-full pointer-events-none'
           }`}
         >
-          <div className="flex flex-col items-center justify-center h-full pt-20 pb-10">
+          {/* MUEVE EL BOTÓN DE CERRAR AQUÍ, DENTRO DEL OVERLAY, Y POSICIONALO */}
+          <div className="absolute top-4 right-4"> {/* Ajusta top/right según sea necesario */}
+             <button
+                className="text-white text-3xl" // Clase para hacerlo más grande y visible
+                onClick={() => setIsMenuOpen(false)} // Siempre cerrar
+                aria-label="Cerrar menú"
+            >
+                <FaTimes />
+            </button>
+          </div>
+
+          <div className="flex flex-col items-center justify-center h-full pt-20 pb-10 bg-gradient-to-b from-blue-900 via-blue-800 to-blue-900 bg-opacity-100">
             {['Inicio', 'perfil', 'formacion', 'Experiencia', 'Contacto'].map(
               (item) => (
                 <button
                   key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())} // Use lowercase for IDs
-                  className="w-4/5 max-w-xs py-4 my-2 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-lg transition transform hover:scale-105"
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="w-4/5 max-w-xs py-4 my-2 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-lg font-semibold transition transform hover:scale-105"
                 >
                   <i
                     className={`fas ${
@@ -136,7 +160,7 @@ export default function HomePage() {
 
       <main className="pt-20 bg-gradient-to-br from-blue-300 via-blue-700 to-slate-900 text-white">
         {/* Section: Inicio / Perfil (Hero Section) */}
-        <section id="inicio" className="min-h-screen flex flex-col items-center justify-center p-4">
+        <section id="inicio" className="min-h-screen flex flex-col items-center justify-center p-4 scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
           <div className="relative mb-8">
             <div className="absolute inset-0 bg-white rounded-full opacity-20 blur-xl animate-pulse"></div>
             <img 
@@ -163,8 +187,8 @@ export default function HomePage() {
         </section>
 
         {/* Section: Formacion (Education) */}
-        <section id="formacion" className="py-16 px-4 md:px-8 max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8 text-center">
+        <section id="formacion" className="py-16 px-4 md:px-8 max-w-5xl mx-auto scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
+          <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8 text-center">
             Educación
           </h1>
           
@@ -197,8 +221,8 @@ export default function HomePage() {
         </section>
 
         {/* Section: Experiencia (Laboral & Proyectos) */}
-        <section id="experiencia" className="py-16 px-4 md:px-8 max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8 text-center">
+        <section id="experiencia" className="py-16 px-4 md:px-8 max-w-5xl mx-auto scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
+          <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8 text-center">
             Experiencia Laboral y Proyectos Propios
           </h1>
           
@@ -230,8 +254,8 @@ export default function HomePage() {
               </div>
 
               <p className="mb-4 text-lg">
-                Evolución histórica de las utilidades de las empresas automotrices ecuatorianas! 🚗📊
-                ¡Usando Python y SQL se puede crear gráficos dinámicos e interactivos maniuplando millones de datos🎨📊
+                Ranking anual dinámico del Top 20 Empresas con mayores ingresos desde 2008 a 2023 💼💰
+💻 Para esta aplicación se utilizó JavaScript como lenguaje de programación.
               </p>
               </div>
             {/* Otro proyecto/experiencia si lo tienes */}
@@ -243,15 +267,28 @@ export default function HomePage() {
         </section>
 
         {/* Section: Contacto (Example) */}
-        <section id="contacto" className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8">
-            Contacto
-          </h1>
-          <p className="text-xl mb-4">Puedes contactarme a través de:</p>
-          <p className="text-2xl font-semibold">tucorreo@example.com</p>
-          <p className="text-2xl font-semibold">+593 999 999 999</p>
-          {/* Aquí puedes agregar un formulario de contacto o enlaces a redes sociales */}
-        </section>
+<section id="contacto" className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
+  <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8">
+    Contacto
+  </h1>
+  <p className="text-xl mb-4">Puedes contactarme a través de:</p>
+
+  {/* Enlace de Correo Electrónico */}
+  <p className="text-2xl font-semibold">
+    <a href="mailto:cllano21@gmail.com" className="text-blue-400 hover:underline">
+      cllano21@gmail.com
+    </a>
+  </p>
+
+  {/* Enlace de WhatsApp */}
+  <p className="text-2xl font-semibold">
+    <a href="https://wa.me/593981972285" className="text-blue-400 hover:underline">
+      +593 98197 2285
+    </a>
+  </p>
+
+  {/* Aquí puedes agregar un formulario de contacto o enlaces a redes sociales */}
+</section>
 
       </main>
     </>
