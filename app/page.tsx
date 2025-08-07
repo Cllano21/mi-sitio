@@ -40,7 +40,7 @@ export default function HomePage() {
   <title>César Llano Datos</title>
   <meta name="description" content="Portafolio profesional de César Llano, experto en análisis de datos, visualización y economía." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon1.ico" />
 </Head>
      {/* Google Tag Manager Script */}
       <Script id="gtm-script" strategy="afterInteractive">
