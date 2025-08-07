@@ -37,7 +37,7 @@ export default function HomePage() {
   return (
     <>
     <Head>
-  <title>César Llano | Analista de Datos</title>
+  <title>César Llano Datos</title>
   <meta name="description" content="Portafolio profesional de César Llano, experto en análisis de datos, visualización y economía." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/favicon.ico" />
