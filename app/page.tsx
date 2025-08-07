@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import Script from 'next/script'; // 👈 AÑADIDO
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,6 +34,25 @@ export default function HomePage() {
 
   return (
     <>
+     {/* Google Tag Manager Script */}
+      <Script id="gtm-script" strategy="afterInteractive">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-NHZ39CL7');
+        `}
+      </Script>
+            {/* Google Tag Manager (noscript) */}
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-NHZ39CL7"
+          height="0"
+          width="0"
+          style={{ display: 'none', visibility: 'hidden' }}
+        ></iframe>
+      </noscript>
       <header
         ref={headerRef}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -59,7 +79,7 @@ export default function HomePage() {
           </div>
 
           <nav className="hidden md:flex flex-wrap justify-center">
-            {['Inicio', 'perfil', 'formacion', 'Experiencia', 'Contacto'].map(
+            {['Inicio', 'formacion', 'Experiencia', 'Contacto'].map(
               (item) => (
                 <button
                   key={item}
@@ -70,9 +90,7 @@ export default function HomePage() {
                     className={`fas ${
                       item === 'Inicio'
                         ? 'fa-circle'
-                        : item === 'perfil'
-                        ? 'fa-user'
-                        : item === 'formacion'
+                      :item === 'formacion'
                         ? 'fa-graduation-cap'
                         : item === 'Experiencia'
                         ? 'fa-briefcase'
@@ -81,8 +99,6 @@ export default function HomePage() {
                   />
                   {item === 'Inicio'
                     ? 'Inicio'
-                    : item === 'perfil'
-                    ? 'Perfil'
                     : item === 'formacion'
                     ? 'Educación'
                     : item === 'Experiencia'
@@ -122,7 +138,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col items-center justify-center h-full pt-20 pb-10 bg-gradient-to-b from-blue-900 via-blue-800 to-blue-900 bg-opacity-100">
-            {['Inicio', 'perfil', 'formacion', 'Experiencia', 'Contacto'].map(
+            {['Inicio', 'formacion', 'Experiencia', 'Contacto'].map(
               (item) => (
                 <button
                   key={item}
@@ -133,8 +149,6 @@ export default function HomePage() {
                     className={`fas ${
                       item === 'Inicio'
                         ? 'fa-circle'
-                        : item === 'perfil'
-                        ? 'fa-user'
                         : item === 'formacion'
                         ? 'fa-graduation-cap'
                         : item === 'Experiencia'
@@ -144,8 +158,6 @@ export default function HomePage() {
                   />
                   {item === 'Inicio'
                     ? 'Inicio'
-                    : item === 'perfil'
-                    ? 'Perfil'
                     : item === 'formacion'
                     ? 'Educación'
                     : item === 'Experiencia'
