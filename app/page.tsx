@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Script from 'next/script'; // 👈 AÑADIDO
+import Head from 'next/head';
+
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,6 +36,12 @@ export default function HomePage() {
 
   return (
     <>
+    <Head>
+  <title>César Llano | Analista de Datos</title>
+  <meta name="description" content="Portafolio profesional de César Llano, experto en análisis de datos, visualización y economía." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.ico" />
+</Head>
      {/* Google Tag Manager Script */}
       <Script id="gtm-script" strategy="afterInteractive">
         {`
