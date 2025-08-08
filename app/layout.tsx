@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 
+// Añade esta línea para importar el componente
+import { Analytics } from "@vercel/analytics/next";
+
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -26,6 +29,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${firaCode.variable} antialiased`}>
         {children}
+        
+        {/* Y coloca el componente aquí */}
+        <Analytics />
       </body>
     </html>
   );
