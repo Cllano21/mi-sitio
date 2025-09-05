@@ -87,7 +87,7 @@ export default function HomePage() {
           </div>
 
           <nav className="hidden md:flex flex-wrap justify-center">
-            {['Inicio', 'formacion', 'Experiencia', 'Contacto'].map(
+            {['Home', 'formacion', 'Expertise', 'contact'].map(
               (item) => (
                 <button
                   key={item}
@@ -96,22 +96,22 @@ export default function HomePage() {
                 >
                   <i
                     className={`fas ${
-                      item === 'Inicio'
+                      item === 'Home'
                         ? 'fa-circle'
                       :item === 'formacion'
                         ? 'fa-graduation-cap'
-                        : item === 'Experiencia'
+                        : item === 'Expertise'
                         ? 'fa-briefcase'
                         : 'fa-envelope'
                     } mr-2 w-4 h-4`}
                   />
-                  {item === 'Inicio'
-                    ? 'Inicio'
+                  {item === 'Home'
+                    ? 'Home'
                     : item === 'formacion'
                     ? 'Role'
-                    : item === 'Experiencia'
-                    ? 'Experiencia'
-                    : 'Contacto'}
+                    : item === 'Expertise'
+                    ? 'Expertise'
+                    : 'contact'}
                 </button>
               )
             )}
@@ -146,7 +146,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col items-center justify-center h-full pt-20 pb-10 bg-gradient-to-b from-blue-900 via-blue-800 to-blue-900 bg-opacity-100">
-            {['Inicio', 'formacion', 'Experiencia', 'Contacto'].map(
+            {['Home', 'formacion', 'Expertise', 'contact'].map(
               (item) => (
                 <button
                   key={item}
@@ -155,22 +155,22 @@ export default function HomePage() {
                 >
                   <i
                     className={`fas ${
-                      item === 'Inicio'
+                      item === 'Home'
                         ? 'fa-circle'
                         : item === 'formacion'
                         ? 'fa-graduation-cap'
-                        : item === 'Experiencia'
+                        : item === 'Expertise'
                         ? 'fa-briefcase'
                         : 'fa-envelope'
                     } mr-3 w-5 h-5`}
                   />
-                  {item === 'Inicio'
-                    ? 'Inicio'
+                  {item === 'Home'
+                    ? 'Home'
                     : item === 'formacion'
                     ? 'Educación'
-                    : item === 'Experiencia'
-                    ? 'Experiencia'
-                    : 'Contacto'}
+                    : item === 'Expertise'
+                    ? 'Expertise'
+                    : 'contact'}
                 </button>
               )
             )}
@@ -179,8 +179,8 @@ export default function HomePage() {
       </header>
 
       <main className="pt-20 bg-gradient-to-br from-blue-300 via-blue-700 to-slate-900 text-white">
-        {/* Section: Inicio / Perfil (Hero Section) */}
-        <section id="inicio" className="min-h-screen flex flex-col items-center justify-center p-4 scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
+        {/* Section: Home / Perfil (Hero Section) */}
+        <section id="Home" className="min-h-screen flex flex-col items-center justify-center p-4 scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
           <div className="relative mb-8">
             <div className="absolute inset-0 bg-white rounded-full opacity-20 blur-xl animate-pulse"></div>
             <img 
@@ -199,7 +199,7 @@ export default function HomePage() {
           </h2>
           
           <button 
-            onClick={() => scrollToSection('contacto')}
+            onClick={() => scrollToSection('contact')}
             className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Contáctame
@@ -222,74 +222,56 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Section: Experiencia (Laboral & Proyectos) */}
-        <section id="experiencia" className="py-16 px-4 md:px-8 max-w-5xl mx-auto scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
+        {/* Section: Expertise (Laboral & Proyectos) */}
+        <section id="Expertise" className="py-16 px-4 md:px-8 max-w-5xl mx-auto scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
           <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8 text-center">
-            Experiencia Laboral y Proyectos Propios
+            Expertise 
           </h1>
           
           <div className="flex flex-col gap-12"> {/* Gap for spacing between experience entries */}
             {/* Análisis de datos propio (Video Project) */}
             <div className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-semibold mb-4">Proyecto: Dashboard de utilidades automotrices</h3>
-              
-              <div className="video-container mb-6"> {/* Added mb-6 for spacing below video */}
-                <video controls muted autoPlay playsInline className="object-cover w-full max-w-xl mx-auto h-[280px] rounded-lg shadow-xl"> {/* Adjusted height example */}
-                  <source src="video/Diseño sin título (2).mp4" type="video/mp4" />
-                  Tu navegador no soporta video HTML5.
-                </video>
-              </div>
+              <h3 className="text-2xl font-semibold mb-4">Release Management for global eCommerce Platform
 
-              <p className="mb-4 text-lg">
-                Evolución histórica de las utilidades de las empresas automotrices ecuatorianas! 🚗📊
-                ¡Usando Python y SQL se puede crear gráficos dinámicos e interactivos maniuplando millones de datos🎨📊
-              </p>
-              </div>
-<div className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-semibold mb-4">Proyecto: Ranking dinámico</h3>
-              
-              <div className="video-container mb-6"> {/* Added mb-6 for spacing below video */}
-                <video controls muted autoPlay playsInline className="object-cover w-full max-w-xl mx-auto h-[280px] rounded-lg shadow-xl"> {/* Adjusted height example */}
-                  <source src="video/GSIS.mp4" type="video/mp4" />
-                  Tu navegador no soporta video HTML5.
-                </video>
-              </div>
+Several SAP BI & Analytics Projects
 
-              <p className="mb-4 text-lg">
-                Ranking anual dinámico del Top 20 Empresas con mayores ingresos desde 2008 a 2023 💼💰
-💻 Para esta aplicación se utilizó JavaScript como lenguaje de programación.
-              </p>
+Product Owner & Business Development (Start-Up)
+
+Sales & Pre-Sales</h3>
+              
+              
+              
               </div>
-            {/* Otro proyecto/experiencia si lo tienes */}
+            {/* Otro proyecto/Expertise si lo tienes */}
             {/* <div className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-semibold mb-2">Título de Otra Experiencia</h3>
-              <p className="text-lg font-light">Descripción de la otra experiencia o proyecto.</p>
+              <h3 className="text-2xl font-semibold mb-2">Título de Otra Expertise</h3>
+              <p className="text-lg font-light">Descripción de la otra Expertise o proyecto.</p>
             </div> */}
           </div>
         </section>
 
-        {/* Section: Contacto (Example) */}
-<section id="contacto" className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
+        {/* Section: contact (Example) */}
+<section id="contact" className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
   <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8">
-    Contacto
+    contact
   </h1>
   <p className="text-xl mb-4">Puedes contactarme a través de:</p>
 
   {/* Enlace de Correo Electrónico */}
   <p className="text-2xl font-semibold">
     <a href="mailto:cllano21@gmail.com" className="text-blue-400 hover:underline">
-      cllano21@gmail.com
+      ssss
     </a>
   </p>
 
   {/* Enlace de WhatsApp */}
   <p className="text-2xl font-semibold">
     <a href="https://wa.me/593981972285" className="text-blue-400 hover:underline">
-      +593 98197 2285
+      aaaa
     </a>
   </p>
 
-  {/* Aquí puedes agregar un formulario de contacto o enlaces a redes sociales */}
+  {/* Aquí puedes agregar un formulario de contact o enlaces a redes sociales */}
 </section>
 
       </main>
