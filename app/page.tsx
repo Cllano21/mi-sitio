@@ -191,11 +191,11 @@ export default function HomePage() {
           </div>
           
           <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-4 text-center px-4">
-            César Llano Iza
+            Tim Oehme
           </h1>
           
           <h2 className="text-xl md:text-2xl text-blue-200 font-light text-center max-w-2xl px-4 mb-8">
-            Sociólogo y Master en Economía | Especialista en Análisis y visualización de Datos
+            Interim Management with hands-on
           </h2>
           
           <button 
@@ -209,33 +209,15 @@ export default function HomePage() {
         {/* Section: Formacion (Education) */}
         <section id="formacion" className="py-16 px-4 md:px-8 max-w-5xl mx-auto scroll-mt-20"> {/* AGREGADO scroll-mt-20 */}
           <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 mb-8 text-center">
-            Educación
+            Role
           </h1>
           
           <div className="flex flex-col gap-8"> {/* Use gap for spacing between education entries */}
             {/* Maestría en Economía */}
             <div className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-semibold mb-2">Maestría en Economía</h3>
-              <p className="text-lg font-light mb-1">
-                <span className="font-medium">Centro Universitario:</span> Facultad Latinoamericana de Ciencias Sociales FLACSO
-              </p>
-              <p className="text-lg font-light mb-1">
-                <span className="font-medium">Tesis:</span> Diferencias salariales por género en el Ecuador periodo 2007- 2016
-              </p>
-              <p className="text-lg font-light">
-                <span className="font-medium">Materias de especialidad:</span> Economía de la innovación
-              </p>
-            </div>
+              <h3 className="text-2xl font-semibold mb-2">Crisis Management Release Management Delivery Lead</h3>
+              
 
-            {/* Sociología */}
-            <div className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-semibold mb-2">Sociología</h3>
-              <p className="text-lg font-light mb-1">
-                <span className="font-medium">Universidad:</span> Pontificia Universidad Católica del Ecuador
-              </p>
-              <p className="text-lg font-light">
-                <span className="font-medium">Tesis:</span> Lo político en la comunidad andina Caso de estudio Comuna Andina Cocotog
-              </p>
             </div>
           </div>
         </section>
