@@ -108,7 +108,7 @@ export default function HomePage() {
                   {item === 'Inicio'
                     ? 'Inicio'
                     : item === 'formacion'
-                    ? 'Educación'
+                    ? 'Role'
                     : item === 'Experiencia'
                     ? 'Experiencia'
                     : 'Contacto'}
